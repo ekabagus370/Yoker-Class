@@ -26,30 +26,30 @@ class CourseResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Section::make('Detail Course')
-                ->schema([
-                    Forms\Components\TextInput::make('name')
-                        ->required(),
-                    Forms\Components\Select::make('teacher_id')
-                        ->label('Teacher')
-                        ->options(User::all()->where('role', 'teacher')->pluck('name', 'id'))
-                        ->searchable(),
-                ])->columns(2),
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required(),
+                        Forms\Components\Select::make('teacher_id')
+                            ->label('Teacher')
+                            ->options(User::all()->where('role', 'teacher')->pluck('name', 'id'))
+                            ->searchable(),
+                    ])->columns(2),
                 Forms\Components\Section::make('Image')
-                ->schema([
-                    Forms\Components\FileUpload::make('image_url')
-                        ->hiddenLabel()
-                        ->image()
-                        ->imageEditor()
-                        ->imageEditorAspectRatios([
-                            '16:9',
-                            '4:3',
-                            '1:1',
-                        ])
-                        ->directory('uploads')
-                        ->visibility('public')
-                        ->openable()
-                        ->downloadable(),
-                ])->columns(1),
+                    ->schema([
+                        Forms\Components\FileUpload::make('image_url')
+                            ->hiddenLabel()
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ])
+                            ->directory('uploads')
+                            ->visibility('public')
+                            ->openable()
+                            ->downloadable(),
+                    ])->columns(1),
                 // Forms\Components\TextInput::make('code')
                 //     ->disabled()
                 //     ->default(fn() => Str::upper(Str::random(6))),
@@ -62,12 +62,18 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('No')
+                    ->rowIndex(),
                 Tables\Columns\ImageColumn::make('image_url')
                     ->square()
                     ->label('Photo'),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('code'),
-                Tables\Columns\TextColumn::make('teacher.name'),
+                Tables\Columns\TextColumn::make('teacher.name')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('students_count')->counts('students'),
             ])
             ->filters([

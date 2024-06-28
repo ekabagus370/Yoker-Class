@@ -24,18 +24,26 @@ class MaterialResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('course_id')
-                    ->label('Course')
-                    ->options(Course::all()->pluck('name', 'id'))
-                    ->searchable(),
-                Forms\Components\FileUpload::make('file')
-                    ->multiple()
-                    ->directory('files')
-                    ->visibility('public')
-                    ->openable()
-                    ->downloadable()
-                    ->maxSize(30720)
-                    ->required(),
+                Forms\Components\Section::make('Detail Material')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required(),
+                        Forms\Components\Select::make('course_id')
+                            ->label('Course')
+                            ->options(Course::all()->pluck('name', 'id'))
+                            ->searchable(),
+                    ])->columns(2),
+                Forms\Components\Section::make('File')
+                    ->schema([
+                        Forms\Components\FileUpload::make('file')
+                            ->hiddenLabel()
+                            ->directory('files')
+                            ->visibility('public')
+                            ->openable()
+                            ->downloadable()
+                            ->maxSize(30720)
+                            ->required(),
+                    ])->columns(1),
             ]);
     }
 
@@ -43,7 +51,14 @@ class MaterialResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('No')
+                    ->rowIndex(),
+                Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('course.name')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //

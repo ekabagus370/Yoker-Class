@@ -40,8 +40,14 @@ class CourseUserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('student.name'),
-                Tables\Columns\TextColumn::make('course.name'),
+                Tables\Columns\TextColumn::make('No')
+                    ->rowIndex(),
+                Tables\Columns\TextColumn::make('student.name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('course.name')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
