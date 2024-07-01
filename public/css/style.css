@@ -1,0 +1,7 @@
+.toggle-circle {
+    transition: transform 0.3s ease-in-out;
+}
+
+.dark .toggle-circle {
+    transform: translateX(100%);
+}
