@@ -9,13 +9,7 @@
                     <a href="#Beranda" class="hover:underline me-4 md:me-6">Home</a>
                 </li>
                 <li>
-                    <a href="#Layanan" class="hover:underline me-4 md:me-6">Layanan</a>
-                </li>
-                <li>
-                    <a href="#Cara Pendaftaran" class="hover:underline me-4 md:me-6">Cara Pendaftaran</a>
-                </li>
-                <li>
-                    <a href="#FAQ" class="hover:underline">FAQ</a>
+                    <a href="#fitur" class="hover:underline me-4 md:me-6">Fitur</a>
                 </li>
             </ul>
         </div>
