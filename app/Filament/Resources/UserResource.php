@@ -19,6 +19,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
+    protected static ?string $navigationGroup = 'User Management';
+
     public static function form(Form $form): Form
     {
         return $form->schema([
@@ -50,13 +52,10 @@ class UserResource extends Resource
 
             Forms\Components\Section::make('Role')
                 ->schema([
-                    Forms\Components\Select::make('role')
-                        ->options([
-                            'admin' => 'Admin',
-                            'teacher' => 'Teacher',
-                            'student' => 'Student',
-                        ])
-                        ->native(false)
+                    // Using CheckboxList Component
+                    Forms\Components\Select::make('roles')
+                        ->relationship('roles', 'name')
+                        ->preload()
                         ->searchable()
                         ->required()
                         ->hiddenLabel(),
@@ -89,7 +88,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('role')
+                Tables\Columns\TextColumn::make('roles.name')
                     ->badge(),
             ])
             ->filters([

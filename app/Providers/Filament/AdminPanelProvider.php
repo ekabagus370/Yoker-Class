@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->registration()
             ->profile()
+            ->passwordReset()
             ->userMenuItems([
                 MenuItem::make()
                     ->label('Landing Page')
@@ -37,8 +38,9 @@ class AdminPanelProvider extends PanelProvider
                     ->url('/')
             ])
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Blue,
             ])
+            ->font('Poppins')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([])
@@ -64,6 +66,9 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->brandLogo(asset('images/logo.svg'))
             ->brandLogoHeight('2.5rem')
-            ->databaseNotifications();
+            ->databaseNotifications()
+            ->plugins([
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
+            ]);
     }
 }

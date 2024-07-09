@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -10,10 +12,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles, HasPanelShield;
 
     /**
      * The attributes that are mass assignable.
@@ -58,13 +61,13 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function courses()
     {
-        return $this->hasMany(Course::class, 'teacher_id');
+        return $this->hasMany(Course::class, 'user_id');
     }
 
     public function enrolledCourses()
     {
         return $this->belongsToMany(Course::class, 'course_users', 'student_id', 'course_id')
-                    ->withTimestamps();
+            ->withTimestamps();
     }
 
     public function getFilamentAvatarUrl(): ?string

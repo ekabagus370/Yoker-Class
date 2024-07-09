@@ -11,24 +11,29 @@ class Course extends Model
 
     protected $fillable = [
         'name',
+        'user_id',
+        'description',
         'image_url',
-        'code',
-        'teacher_id',
     ];
 
-    public function teacher()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'teacher_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function students()
+    public function courseClass()
     {
-        return $this->belongsToMany(User::class, 'course_users', 'course_id', 'student_id')
-                    ->withTimestamps();
+        return $this->hasMany(CourseClass::class, 'course_id');
     }
 
-    public function material()
-    {
-        return $this->belongsTo(Material::class);
-    }
+    // public function students()
+    // {
+    //     return $this->belongsToMany(User::class, 'course_users', 'course_id', 'student_id')
+    //                 ->withTimestamps();
+    // }
+
+    // public function material()
+    // {
+    //     return $this->belongsTo(Material::class);
+    // }
 }
