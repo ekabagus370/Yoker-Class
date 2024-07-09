@@ -29,25 +29,28 @@ class CourseResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required(),
-                        Forms\Components\Select::make('teacher_id')
-                            ->label('Teacher')
-                            ->options(User::all()->where('role', 'teacher')->pluck('name', 'id'))
-                            ->searchable(),
-                    ])->columns(2),
-                Forms\Components\Section::make('Image')
-                    ->schema([
-                        Forms\Components\FileUpload::make('image_url')
-                            ->hiddenLabel()
-                            ->image()
-                            ->imageEditor()
-                            ->imageEditorAspectRatios([
-                                '16:9',
-                                '4:3',
-                                '1:1',
-                            ])
-                            ->directory('uploads')
-                            ->visibility('public')
-                            ->openable()
+                                Forms\Components\Select::make('user_id')
+                                    ->label('User name')
+                                    ->options(User::all()->pluck('name', 'id'))
+                                    ->searchable()
+                                    ->required(),
+                                Forms\Components\RichEditor::make('description')
+                                    ->columnSpan('full'),
+                            ])->columns(2),
+                        Forms\Components\Section::make('Image')
+                            ->schema([
+                                Forms\Components\FileUpload::make('image_url')
+                                    ->hiddenLabel()
+                                    ->image()
+                                    ->imageEditor()
+                                    ->imageEditorAspectRatios([
+                                        '16:9',
+                                        '4:3',
+                                        '1:1',
+                                    ])
+                                    ->directory('uploads')
+                                    ->visibility('public')
+                                    ->openable()
                             ->downloadable(),
                     ])->columns(1),
                 // Forms\Components\TextInput::make('code')
