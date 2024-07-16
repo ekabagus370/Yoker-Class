@@ -27,14 +27,14 @@
             <h1 class="text-center pb-5 text-4xl font-semibold dark:text-gray-100">Jutaan orang di seluruh dunia
                 menggunakan
                 Yoker Class</h1>
-            <p class="text-center justify-center text-lg font-normal">Yoker Class dirancang dengan masukan dari
+            <p class="text-center justify-center text-lg font-normal dark:text-gray-100">Yoker Class dirancang dengan masukan dari
                 komunitas pendidikan, yang memengaruhi pengembangan fitur baru yang memungkinkan pendidik fokus pada
                 pengajaran dan siswa fokus pada pembelajaran.</p>
         </div>
         <div class="flex flex-row justify-center gap-6">
             <div
                 class="bg-white w-80 h-56 shadow rounded-lg content-center text-center p-8 dark:bg-gray-900 hover:bg-blue-200 hover:border-2 hover:border-blue-600">
-                <img class="mx-auto max-w-16 pb-4" src="{{ asset('images/learning_4185218.png') }}" alt="Domain">
+                <img class="mx-auto max-w-16 pb-4 dark:text-gray-100" src="{{ asset('images/learning_4185218.png') }}" alt="Domain">
                 <h1 class="font-semibold text-lg dark:text-gray-100">Personalisasi proses belajat</h1>
             </div>
             <div
@@ -49,15 +49,15 @@
             </div>
         </div>
     </section>
-    <section id="personalisasi proses belajar">
+    <section id="personalisasi proses belajar" class="bg-gray-100 dark:bg-gray-800">
         <div class="pt-16 px-60">
             <img class="mx-auto max-w-12 pb-6" src="{{ asset('images/learning_4185218.png') }}" alt="Domain">
             <h1 class="text-center text-4xl pb-5 font-semibold dark:text-gray-100">Perkaya dan personalisasi proses
                 belajar</h1>
-            <p class="text-center justify-center text-lg font-normal">Dorong efisiensi siswa dengan alat yang dapat
+            <p class="text-center justify-center text-lg font-normal dark:text-gray-100">Dorong efisiensi siswa dengan alat yang dapat
                 mereka akses dari mana saja – dan bangun keterampilan untuk masa depan mereka.</p>
         </div>
-        <div class="flex flex-wrap mx-20 dark:bg-gray-900">
+        <div class="flex flex-wrap mx-20 dark:bg-gray-800">
             <div class="w-full lg:w-1/2">
                 <div class="relative mt-10 lg:mt-0 md:6/12 lg:right-0"">
                     <img src="{{ asset('images/learning-concept-illustration.png') }}" alt="E-Gov">
@@ -107,8 +107,8 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl">
-            <h2 class="text-2xl font-medium mb-7">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
+        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl dark:bg-gray-900">
+            <h2 class="text-2xl font-medium mb-7 dark:text-gray-100">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
             <div class="flex flex-row space-x-10">
                 <div class="w-full">
                     <h2 class="text-xl font-normal dark:text-gray-100">Dukung beragam pengajaran
@@ -141,15 +141,15 @@
             </div>
         </div>
     </section>
-    <section id="sederhanakan tugas sehari-hari">
+    <section id="sederhanakan tugas sehari-hari" class="bg-gray-100 dark:bg-gray-800">
         <div class="pt-16 px-60">
             <img class="mx-auto max-w-12 pb-6" src="{{ asset('images/notebook_2904859.png') }}" alt="Domain">
             <h1 class="text-center text-4xl pb-5 font-semibold dark:text-gray-100">Tingkatkan pengajaran dengan berbagai
                 alat yang menyederhanakan tugas sehari-hari</h1>
-            <p class="text-center justify-center text-lg font-normal">Efisienkan waktu pengajaran dengan alat yang
+            <p class="text-center justify-center text-lg font-normal dark:text-gray-100">Efisienkan waktu pengajaran dengan alat yang
                 dibuat khusus untuk pengajaran, produktivitas, dan kolaborasi.</p>
         </div>
-        <div class="flex flex-wrap mx-20 dark:bg-gray-900">
+        <div class="flex flex-wrap mx-20 dark:bg-gray-800">
             <div class="w-full  self-center lg:w-1/2 md:6/12">
                 <div>
                     <h1 class="text-2xl font-semibold pb-6 dark:text-gray-100">Fitur yang menginspirasi cara baru untuk
@@ -199,8 +199,8 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl">
-            <h2 class="text-2xl font-medium mb-7">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
+        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl dark:bg-gray-900">
+            <h2 class="text-2xl font-medium mb-7 dark:text-gray-100">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
             <div class="flex flex-row space-x-10">
                 <div class="w-full">
                     <h2 class="text-xl font-normal dark:text-gray-100">Dukung beragam pengajaran
@@ -212,10 +212,9 @@
                 <div class="w-full">
                     <h2 class="text-xl font-normal dark:text-gray-100">Tumbuhkan integritas akademik
                     </h2>
-                    <p class="text-base font-normal text-gray-600 dark:text-gray-100">Dorong siswa untuk
-                        menggunakan buah pikirannya sendiri dan identifikasi potensi plagiarisme dengan laporan
-                        keaslian yang membandingkan tugas siswa dengan miliaran halaman web dan lebih dari 40 juta
-                        buku.</p>
+                    <p class="text-base font-normal text-gray-600 dark:text-gray-100">Dorong siswa untuk menggunakan
+                        buah pikirannya sendiri dan identifikasi potensi plagiarisme dengan laporan keaslian yang
+                        membandingkan tugas siswa dengan miliaran halaman web dan lebih dari 40 juta buku.</p>
                 </div>
                 <div class="w-full">
                     <h2 class="text-xl font-normal dark:text-gray-100">Jadikan pembelajaran dapat diakses dan
@@ -234,13 +233,13 @@
             </div>
         </div>
     </section>
-    <section id="dapatkan insight dan visibilitas">
+    <section id="dapatkan insight dan visibilitas" class="bg-gray-100 pb-10 dark:bg-gray-800">
         <div class="py-16 px-60">
             <img class="mx-auto max-w-12 pb-6" src="{{ asset('images/research_15175940.png') }}" alt="Domain">
             <h1 class="text-center text-4xl pb-5 font-semibold dark:text-gray-100">Beroperasi dengan solusi yang dirancang untuk mendapatkan visibilitas, insight, dan kontrol</h1>
-            <p class="text-center justify-center text-lg font-normal">Ciptakan lingkungan belajar yang lebih mudah dikelola serta dukung pendidik dan siswa dengan alat yang terhubung dan lebih aman.</p>
+            <p class="text-center justify-center text-lg font-normal dark:text-gray-100">Ciptakan lingkungan belajar yang lebih mudah dikelola serta dukung pendidik dan siswa dengan alat yang terhubung dan lebih aman.</p>
         </div>
-        <div class="flex flex-wrap mx-20 dark:bg-gray-900">
+        <div class="flex flex-wrap mx-20 dark:bg-gray-800">
             <div class="w-full lg:w-1/2">
                 <div class="relative mt-10 lg:mt-0 md:6/12 lg:right-0"">
                     <img src="{{ asset('images/hand-drawn-college-entrance-exam-illustration.png') }}" alt="E-Gov">
@@ -290,8 +289,8 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl">
-            <h2 class="text-2xl font-medium mb-7">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
+        <div class="bg-gray-100 mx-20 p-10 shadow rounded-3xl dark:bg-gray-900">
+            <h2 class="text-2xl font-medium mb-7 dark:text-gray-100">Jadikan pembelajaran lebih personal dan berpusat pada siswa</h2>
             <div class="flex flex-row space-x-10">
                 <div class="w-full">
                     <h2 class="text-xl font-normal dark:text-gray-100">Dukung beragam pengajaran
