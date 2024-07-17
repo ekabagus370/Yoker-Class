@@ -2,7 +2,9 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Assignment;
 use App\Models\Course;
+use App\Models\CourseClass;
 use App\Models\User;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -28,7 +30,23 @@ class StatsOverview extends BaseWidget
             ->perMonth()
             ->count();
 
+        $courseClass = Trend::model(CourseClass::class)
+            ->between(
+                start: $start ? Carbon::parse($start) : now()->subYear(),
+                end: $end ? Carbon::parse($end) : now(),
+            )
+            ->perMonth()
+            ->count();
+
         $user = Trend::model(User::class)
+            ->between(
+                start: $start ? Carbon::parse($start) : now()->subYear(),
+                end: $end ? Carbon::parse($end) : now(),
+            )
+            ->perMonth()
+            ->count();
+
+        $assignment = Trend::model(Assignment::class)
             ->between(
                 start: $start ? Carbon::parse($start) : now()->subYear(),
                 end: $end ? Carbon::parse($end) : now(),
@@ -53,6 +71,21 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
             Stat::make(
+                label: 'Course Class',
+                value: CourseClass::query()
+                    ->when($start, fn ($query) => $query->whereDate('created_at', '>', $start))
+                    ->when($end, fn ($query) => $query->whereDate('created_at', '<', $end))
+                    ->count()
+            )
+                ->chart(
+                    $courseClass
+                        ->map(fn (TrendValue $value) => $value->aggregate)
+                        ->toArray()
+                )
+                ->description('Total Course Class')
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color('success'),
+            Stat::make(
                 label: 'Users',
                 value: User::query()
                     ->when($start, fn ($query) => $query->whereDate('created_at', '>', $start))
@@ -67,11 +100,21 @@ class StatsOverview extends BaseWidget
                 ->description('Total users')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
+            Stat::make(
+                label: 'Assignments',
+                value: Assignment::query()
+                    ->when($start, fn ($query) => $query->whereDate('created_at', '>', $start))
+                    ->when($end, fn ($query) => $query->whereDate('created_at', '<', $end))
+                    ->count()
+            )
+                ->chart(
+                    $assignment
+                        ->map(fn (TrendValue $value) => $value->aggregate)
+                        ->toArray()
+                )
+                ->description('Total Assignments')
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color('success'),
         ];
-    }
-
-    public static function canView(): bool
-    {
-        return auth()->user()->role == 'admin';
     }
 }

@@ -77,10 +77,6 @@ class TopicResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('content')
-                    ->html()
-                    ->wrap()
-                    ->lineClamp(2),
                 Tables\Columns\TextColumn::make('courseClass.course.name')
                     ->sortable()
                     ->searchable(),
